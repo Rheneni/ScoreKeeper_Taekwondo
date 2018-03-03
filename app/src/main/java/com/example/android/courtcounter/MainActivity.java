@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
     static final int RESULT_ID_PLAYER1 = R.id.result_player1;
     static final int RESULT_ID_PLAYER2 = R.id.result_player2;
 
+    //update with Player class
+    Player player1;
+    Player player2;
     int totalScorePlayer1 = 0;
     int totalScorePlayer2 = 0;
     int foulsPlayer1 = 0;
@@ -41,10 +44,12 @@ public class MainActivity extends AppCompatActivity {
             int scoredViewId = 0;
             int totalScore = 0;
             if (playerId == R.id.punch_button_player1) {
+                player1.addScore(PUNCH_POINTS);
                 totalScore = totalScorePlayer1 += PUNCH_POINTS;
                 totalScoreViewId = R.id.total_score_player_1;
                 scoredViewId = R.id.scored_player_1;
             } else if (playerId == R.id.punch_button_player2) {
+                player2.addScore(PUNCH_POINTS);
                 totalScore = totalScorePlayer2 += PUNCH_POINTS;
                 totalScoreViewId = R.id.total_score_player_2;
                 scoredViewId = R.id.scored_player_2;
@@ -167,6 +172,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void restartFight(View view) {
+        player1.resetScore();
+        player2.resetScore();
         totalScorePlayer1 = 0;
         totalScorePlayer2 = 0;
         foulsPlayer1 = 0;
