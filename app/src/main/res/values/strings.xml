@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Court Counter</string>
+
+    <string name="punch">
+        <font size="10">Punch</font>\n\<font size="8">(1 Point)</font>
+    </string>
+
+    <string name="torsoKick">
+        <font size="10">Torso Kick</font>\n\<font size="8">(2 Points)</font>
+    </string>
+
+    <string name="headKick">
+        <font size="10">Head Kick</font>\n\<font size="8">(3 Points)</font>
+    </string>
+
+    <string name="roundKick">
+        <font size="10">Round Kick</font>\n\<font size="8">(4 Points)</font>
+    </string>
+
+    <string name="lowKick">
+        <font size="10">Low Kick</font>\n\<font size="8">(1 Foul)</font>
+    </string>
+
+    <string name="push">
+        <font size="10">Push</font>\n\<font size="8">(-1 Point)</font>
+    </string>
+
+</resources>

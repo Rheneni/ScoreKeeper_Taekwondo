@@ -1,0 +1,342 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:paddingTop="16dp">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Player 1"
+                android:textSize="22sp"
+                android:textAllCaps="true"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="Total score"
+                android:textAllCaps="true"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="30sp"
+                android:layout_marginTop="8dp"
+                android:id="@+id/total_score_player_1"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Fouls"
+                android:layout_marginTop="8dp"
+                android:textAllCaps="true"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="16sp"
+                android:layout_marginTop="8dp"
+                android:textColor="#bc100a"
+                android:id="@+id/fouls_player_1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginRight="8dp">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:text="@string/punch"
+                        android:textSize="7sp"
+                        android:layout_weight="1"
+                        android:id="@+id/punch_button_player1"
+                        android:onClick="punch"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:text="@string/torsoKick"
+                        android:textSize="7sp"
+                        android:layout_weight="1"
+                        android:id="@+id/torso_kick_button_player1"
+                        android:onClick="torsoKick"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:text="@string/headKick"
+                        android:textSize="7sp"
+                        android:layout_weight="1"
+                        android:id="@+id/head_kick_button_player1"
+                        android:onClick="headKick"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:text="@string/roundKick"
+                        android:textSize="7sp"
+                        android:layout_weight="1"
+                        android:id="@+id/round_kick_button_player1"
+                        android:onClick="roundKick"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:text="@string/lowKick"
+                        android:textSize="7sp"
+                        android:layout_weight="1"
+                        android:textColor="#f10000"
+                        android:id="@+id/lowKick_button_player1"
+                        android:onClick="lowKick"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:text="@string/push"
+                        android:textSize="7sp"
+                        android:layout_weight="1"
+                        android:id="@+id/push_button_player1"
+                        android:onClick="push"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="Scored"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="0"
+                android:id="@+id/scored_player_1"/>
+
+            <TextView
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="30sp"
+                android:id="@+id/result_player1"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"/>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Player 2"
+                android:gravity="center"
+                android:textSize="22sp"
+                android:textAllCaps="true"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Total score"
+                android:layout_marginTop="8dp"
+                android:textAllCaps="true"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:textSize="30sp"
+                android:id="@+id/total_score_player_2"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Fouls"
+                android:layout_marginTop="8dp"
+                android:textAllCaps="true"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="16sp"
+                android:textColor="#bc100a"
+                android:layout_marginTop="8dp"
+                android:id="@+id/fouls_player_2"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginRight="8dp">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:textSize="7sp"
+                        android:text="@string/punch"
+                        android:layout_weight="1"
+                        android:id="@+id/punch_button_player2"
+                        android:onClick="punch"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:textSize="7sp"
+                        android:layout_weight="1"
+                        android:id="@+id/torso_kick_button_player2"
+                        android:text="@string/torsoKick"
+                        android:onClick="torsoKick"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:text="@string/headKick"
+                        android:textSize="7sp"
+                        android:layout_weight="1"
+                        android:id="@+id/head_kick_button_player2"
+                        android:onClick="headKick"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:text="@string/roundKick"
+                        android:textSize="7sp"
+                        android:layout_weight="1"
+                        android:id="@+id/round_kick_button_player2"
+                        android:onClick="roundKick"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:gravity="center"
+                        android:text="@string/lowKick"
+                        android:textSize="7sp"
+                        android:layout_weight="1"
+                        android:textColor="#f10000"
+                        android:id="@+id/lowKick_button_player2"
+                        android:onClick="lowKick"/>
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:text="@string/push"
+                        android:textSize="7sp"
+                        android:layout_weight="1"
+                        android:id="@+id/push_button_player2"
+                        android:onClick="push"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="Scored"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:layout_marginTop="8dp"
+                android:id="@+id/scored_player_2"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="30sp"
+                android:layout_marginTop="16dp"
+                android:id="@+id/result_player2"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:text="Restart Fight"
+        android:onClick="restartFight"/>
+
+</RelativeLayout>
