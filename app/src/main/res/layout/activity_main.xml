@@ -6,16 +6,16 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_alignParentTop="true"
+        android:orientation="horizontal"
         android:paddingTop="16dp">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
             android:gravity="center"
+            android:orientation="vertical"
             android:padding="16dp">
 
             <TextView
@@ -23,83 +23,108 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Player 1"
-                android:textSize="22sp"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true"
+                android:textSize="22sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Energy: "
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:id="@+id/energy_player_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="100"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="8dp"
+                android:gravity="center"
                 android:text="Total score"
                 android:textAllCaps="true"/>
 
             <TextView
+                android:id="@+id/total_score_player_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:text="0"
-                android:textSize="30sp"
-                android:layout_marginTop="8dp"
-                android:id="@+id/total_score_player_1"/>
+                android:textSize="30sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:text="Fouls"
-                android:layout_marginTop="8dp"
                 android:textAllCaps="true"/>
 
             <TextView
+                android:id="@+id/fouls_player_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:text="0"
-                android:textSize="16sp"
-                android:layout_marginTop="8dp"
                 android:textColor="#bc100a"
-                android:id="@+id/fouls_player_1"/>
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_marginRight="8dp"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginRight="8dp">
+                    android:orientation="vertical">
 
                     <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:text="@string/punch"
-                        android:textSize="7sp"
-                        android:layout_weight="1"
                         android:id="@+id/punch_button_player1"
-                        android:onClick="punch"/>
-
-                    <Button
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:text="@string/torsoKick"
-                        android:textSize="7sp"
                         android:layout_weight="1"
+                        android:onClick="punch"
+                        android:text="@string/punch"
+                        android:textSize="7sp" />
+
+                    <Button
                         android:id="@+id/torso_kick_button_player1"
-                        android:onClick="torsoKick"/>
-
-                    <Button
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:text="@string/headKick"
-                        android:textSize="7sp"
                         android:layout_weight="1"
+                        android:onClick="torsoKick"
+                        android:text="@string/torsoKick"
+                        android:textSize="7sp" />
+
+                    <Button
                         android:id="@+id/head_kick_button_player1"
-                        android:onClick="headKick"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:onClick="headKick"
+                        android:text="@string/headKick"
+                        android:textSize="7sp" />
 
                 </LinearLayout>
 
@@ -110,32 +135,32 @@
                     android:orientation="vertical">
 
                     <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:text="@string/roundKick"
-                        android:textSize="7sp"
-                        android:layout_weight="1"
                         android:id="@+id/round_kick_button_player1"
-                        android:onClick="roundKick"/>
-
-                    <Button
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:text="@string/lowKick"
-                        android:textSize="7sp"
                         android:layout_weight="1"
-                        android:textColor="#f10000"
+                        android:onClick="roundKick"
+                        android:text="@string/roundKick"
+                        android:textSize="7sp" />
+
+                    <Button
                         android:id="@+id/lowKick_button_player1"
-                        android:onClick="lowKick"/>
-
-                    <Button
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:text="@string/push"
-                        android:textSize="7sp"
                         android:layout_weight="1"
+                        android:onClick="lowKick"
+                        android:text="@string/lowKick"
+                        android:textColor="#f10000"
+                        android:textSize="7sp" />
+
+                    <Button
                         android:id="@+id/push_button_player1"
-                        android:onClick="push"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:onClick="push"
+                        android:text="@string/push"
+                        android:textSize="7sp" />
 
                 </LinearLayout>
 
@@ -144,25 +169,25 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="8dp"
+                android:gravity="center"
                 android:text="Scored"/>
 
             <TextView
+                android:id="@+id/scored_player_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="8dp"
-                android:text="0"
-                android:id="@+id/scored_player_1"/>
+                android:gravity="center"
+                android:text="0" />
 
             <TextView
-                android:layout_marginTop="16dp"
+                android:id="@+id/result_player1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:gravity="center"
-                android:textSize="30sp"
-                android:id="@+id/result_player1"/>
+                android:textSize="30sp" />
 
         </LinearLayout>
 
@@ -174,93 +199,117 @@
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_weight="1"
             android:gravity="center"
+            android:orientation="vertical"
             android:padding="16dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Player 2"
                 android:gravity="center"
-                android:textSize="22sp"
-                android:textAllCaps="true"/>
+                android:text="Player 2"
+                android:textAllCaps="true"
+                android:textSize="22sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="Energy: "
+                    android:textAllCaps="true" />
+
+                <TextView
+                    android:id="@+id/energy_player_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="100"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:text="Total score"
-                android:layout_marginTop="8dp"
                 android:textAllCaps="true"/>
 
             <TextView
+                android:id="@+id/total_score_player_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="0"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:textSize="30sp"
-                android:id="@+id/total_score_player_2"/>
+                android:text="0"
+                android:textSize="30sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:text="Fouls"
-                android:layout_marginTop="8dp"
                 android:textAllCaps="true"/>
 
             <TextView
+                android:id="@+id/fouls_player_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:text="0"
-                android:textSize="16sp"
                 android:textColor="#bc100a"
-                android:layout_marginTop="8dp"
-                android:id="@+id/fouls_player_2"/>
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="8dp"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginRight="8dp">
+                    android:orientation="vertical">
 
                     <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:textSize="7sp"
-                        android:text="@string/punch"
-                        android:layout_weight="1"
                         android:id="@+id/punch_button_player2"
-                        android:onClick="punch"/>
-
-                    <Button
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:textSize="7sp"
                         android:layout_weight="1"
+                        android:onClick="punch"
+                        android:text="@string/punch"
+                        android:textSize="7sp" />
+
+                    <Button
                         android:id="@+id/torso_kick_button_player2"
-                        android:text="@string/torsoKick"
-                        android:onClick="torsoKick"/>
-
-                    <Button
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:text="@string/headKick"
-                        android:textSize="7sp"
                         android:layout_weight="1"
+                        android:onClick="torsoKick"
+                        android:text="@string/torsoKick"
+                        android:textSize="7sp" />
+
+                    <Button
                         android:id="@+id/head_kick_button_player2"
-                        android:onClick="headKick"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:onClick="headKick"
+                        android:text="@string/headKick"
+                        android:textSize="7sp" />
 
                 </LinearLayout>
 
@@ -271,33 +320,33 @@
                     android:orientation="vertical">
 
                     <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:text="@string/roundKick"
-                        android:textSize="7sp"
-                        android:layout_weight="1"
                         android:id="@+id/round_kick_button_player2"
-                        android:onClick="roundKick"/>
-
-                    <Button
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:gravity="center"
-                        android:text="@string/lowKick"
-                        android:textSize="7sp"
                         android:layout_weight="1"
-                        android:textColor="#f10000"
+                        android:onClick="roundKick"
+                        android:text="@string/roundKick"
+                        android:textSize="7sp" />
+
+                    <Button
                         android:id="@+id/lowKick_button_player2"
-                        android:onClick="lowKick"/>
-
-                    <Button
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:text="@string/push"
-                        android:textSize="7sp"
                         android:layout_weight="1"
+                        android:gravity="center"
+                        android:onClick="lowKick"
+                        android:text="@string/lowKick"
+                        android:textColor="#f10000"
+                        android:textSize="7sp" />
+
+                    <Button
                         android:id="@+id/push_button_player2"
-                        android:onClick="push"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:onClick="push"
+                        android:text="@string/push"
+                        android:textSize="7sp" />
 
                 </LinearLayout>
 
@@ -306,25 +355,25 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="8dp"
+                android:gravity="center"
                 android:text="Scored"/>
 
             <TextView
+                android:id="@+id/scored_player_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="0"
                 android:layout_marginTop="8dp"
-                android:id="@+id/scored_player_2"/>
+                android:gravity="center"
+                android:text="0" />
 
             <TextView
+                android:id="@+id/result_player2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="30sp"
                 android:layout_marginTop="16dp"
-                android:id="@+id/result_player2"/>
+                android:gravity="center"
+                android:textSize="30sp" />
 
         </LinearLayout>
 
@@ -336,7 +385,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="24dp"
-        android:text="Restart Fight"
-        android:onClick="restartFight"/>
+        android:onClick="restartFight"
+        android:text="Restart Fight" />
 
 </RelativeLayout>
