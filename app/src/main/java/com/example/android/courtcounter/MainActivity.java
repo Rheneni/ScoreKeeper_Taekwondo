@@ -1,10 +1,12 @@
 package com.example.android.courtcounter;
 
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,11 +26,13 @@ public class MainActivity extends AppCompatActivity {
     static final int RESULT_ID_PLAYER1 = R.id.result_player1;
     static final int RESULT_ID_PLAYER2 = R.id.result_player2;
 
-    //update with Player class
     Player player1 = new Player();
     Player player2 = new Player();
     boolean existsWinner = false;
     boolean isPlayer1Turn = true;
+    int[] imagesPlayer1 = {R.drawable.stance1, R.drawable.defend1, R.drawable.punch1, R.drawable.torso_kick, R.drawable.head_kick, R.drawable.torso_kick, R.drawable.torso_kick, R.drawable.punch1};
+    int[] imagesPlayer2 = {R.drawable.stance2, R.drawable.defend2, R.drawable.punch2, R.drawable.torso_kick, R.drawable.head_kick, R.drawable.torso_kick, R.drawable.torso_kick, R.drawable.punch2};
+    MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,28 +43,28 @@ public class MainActivity extends AppCompatActivity {
     public void punch(View view) {
         if(!existsWinner) {
             executeAttack(new Punch(), view.getId(),
-                    R.id.punch_button_player1, R.id.punch_button_player2, "punch");
+                    R.id.punch_button_player1, R.id.punch_button_player2, Position.PUNCH, "punch");
         }
     }
 
     public void torsoKick(View view) {
         if(!existsWinner) {
             executeAttack(new TorsoKick(), view.getId(),
-                    R.id.torso_kick_button_player1, R.id.torso_kick_button_player2, "torsoKick");
+                    R.id.torso_kick_button_player1, R.id.torso_kick_button_player2, Position.TORSO_KICK, "torsoKick");
         }
     }
 
     public void headKick(View view) {
         if(!existsWinner) {
             executeAttack(new HeadKick(), view.getId(),
-                    R.id.head_kick_button_player1, R.id.head_kick_button_player2, "headKick");
+                    R.id.head_kick_button_player1, R.id.head_kick_button_player2, Position.HEAD_KICK, "headKick");
         }
     }
 
     public void roundKick(View view) {
         if(!existsWinner) {
             executeAttack(new RoundKick(), view.getId(),
-                    R.id.round_kick_button_player1, R.id.round_kick_button_player2, "roundKick");
+                    R.id.round_kick_button_player1, R.id.round_kick_button_player2, Position.ROUND_KICK, "roundKick");
         }
     }
 
@@ -71,17 +75,23 @@ public class MainActivity extends AppCompatActivity {
             int scoredViewId = 0;
             int scored = 0;
             int fouls = 0;
+            Position position1 = Position.STANCE;
+            Position position2 = Position.STANCE;
             boolean isCorrectTurn = true;
             if (playerId == R.id.lowKick_button_player1 && isPlayer1Turn) {
                 scored = player1.updatePlayer(new LowKick(), player2);
                 fouls = player1.getFouls();
                 foulsViewId = R.id.fouls_player_1;
                 scoredViewId = R.id.scored_player_1;
+                position1 = Position.PUSH;
+                position2 = Position.DEFEND;
             } else if (playerId == R.id.lowKick_button_player2 && !isPlayer1Turn) {
                 scored = player2.updatePlayer(new LowKick(), player1);
                 fouls = player2.getFouls();
                 foulsViewId = R.id.fouls_player_2;
                 scoredViewId = R.id.scored_player_2;
+                position2 = Position.PUSH;
+                position1 = Position.DEFEND;
             } else {
                 //Log.d("lowKick", "No Matching viewId");
                 isCorrectTurn = false;
@@ -94,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
                 displayFoulsPlayer(fouls, foulsViewId);
                 displayScorePlayer(scored, scoredViewId);
                 dislpayEnergyPlayers();
+                updateImages(position1, position2);
             }
         }
     }
@@ -101,26 +112,32 @@ public class MainActivity extends AppCompatActivity {
     public void push(View view) {
         if(!existsWinner) {
             executeAttack(new Push(), view.getId(),
-                    R.id.push_button_player1, R.id.push_button_player2, "push");
+                    R.id.push_button_player1, R.id.push_button_player2, Position.PUSH, "push");
         }
     }
 
-    public <T extends Attack> void executeAttack(T attack, int playerId, int id1, int id2, String tag) {
+    public <T extends Attack> void executeAttack(T attack, int playerId, int id1, int id2, Position position, String tag) {
         int totalScoreViewId = 0;
         int scoredViewId = 0;
         int scored = 0;
         int totalScore = 0;
+        Position position1 = Position.STANCE;
+        Position position2 = Position.STANCE;
         boolean isCorrectTurn = true;
         if (playerId == id1 && isPlayer1Turn) {
             scored = player1.updatePlayer(attack, player2);
             totalScore = player1.getTotalScore();
             totalScoreViewId = R.id.total_score_player_1;
             scoredViewId = R.id.scored_player_1;
+            position1 = position;
+            position2 = Position.DEFEND;
         } else if (playerId == id2 && !isPlayer1Turn) {
             scored = player2.updatePlayer(attack, player1);
             totalScore = player2.getTotalScore();
             totalScoreViewId = R.id.total_score_player_2;
             scoredViewId = R.id.scored_player_2;
+            position2 = position;
+            position1 = Position.DEFEND;
         } else {
             Log.d(tag, "No Matching viewId");
             isCorrectTurn = false;
@@ -133,10 +150,14 @@ public class MainActivity extends AppCompatActivity {
             displayScorePlayer(totalScore, totalScoreViewId);
             displayScorePlayer(scored, scoredViewId);
             dislpayEnergyPlayers();
+            updateImages(position1, position2);
         }
     }
 
     public void restartFight(View view) {
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            mediaPlayer.stop();
+        }
         player1.resetScore();
         player2.resetScore();
         existsWinner = false;
@@ -152,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
         displayFoulsPlayer(player2.getFouls(), R.id.fouls_player_2);
         dislpayEnergyPlayers();
         cleanResults();
+        updateImages(Position.STANCE, Position.STANCE);
     }
 
     public void cleanResults() {
@@ -233,6 +255,13 @@ public class MainActivity extends AppCompatActivity {
         energyView2.setText(String.valueOf(player2.getEnergy()));
     }
 
+    public void updateImages(Position position1, Position position2) {
+        ImageView imageView1 = findViewById(R.id.image_player1);
+        imageView1.setImageResource(imagesPlayer1[position1.getValue()]);
+        ImageView imageView2 = findViewById(R.id.image_player2);
+        imageView2.setImageResource(imagesPlayer2[position2.getValue()]);
+    }
+
     public void displayWinLossResults(int winner, int loser) {
         TextView winnerView = findViewById(winner);
         winnerView.setText("WINNER");
@@ -241,6 +270,21 @@ public class MainActivity extends AppCompatActivity {
         TextView loserView = findViewById(loser);
         loserView.setText("LOSER");
         loserView.setTextColor(Color.RED);
+
+        if (winner == RESULT_ID_PLAYER1) {
+            if (player1.getFouls() > player2.getFouls()) {
+                mediaPlayer = MediaPlayer.create(this, R.raw.winning_booing);
+            } else {
+                mediaPlayer = MediaPlayer.create(this, R.raw.winning_cheering);
+            }
+        } else {
+            if (player2.getFouls() > player1.getFouls()) {
+                mediaPlayer = MediaPlayer.create(this, R.raw.winning_booing);
+            } else {
+                mediaPlayer = MediaPlayer.create(this, R.raw.winning_cheering);
+            }
+        }
+        mediaPlayer.start();
     }
 
     public void displayDrawResults() {
@@ -251,6 +295,20 @@ public class MainActivity extends AppCompatActivity {
         TextView view2 = findViewById(RESULT_ID_PLAYER2);
         view2.setText("DRAW");
         view2.setTextColor(Color.BLUE);
+    }
+
+    public enum Position {
+        STANCE(0), DEFEND(1), PUNCH(2), TORSO_KICK(3), HEAD_KICK(4), ROUND_KICK(5), LOW_KICK(6), PUSH(7);
+        private int m_value;
+
+        Position(int value) {
+            this.m_value = value;
+        }
+
+        public int getValue() {
+            return this.m_value;
+        }
+
     }
 
     public enum PlayerId {

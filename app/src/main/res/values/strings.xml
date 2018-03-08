@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">Court Counter</string>
 
+    <string name="player1">
+        <font size="22">Player 1</font>
+    </string>
+
+    <string name="player2">
+        <font size="22">Player 2</font>
+    </string>
+
     <string name="punch">
         <font size="10">Punch</font>\n\<font size="8">(1 Point)</font>
     </string>
@@ -25,4 +33,23 @@
         <font size="10">Push</font>\n\<font size="8">(-1 Point)</font>
     </string>
 
+    <string name="totalScore">
+        <font size="14">Total score: </font>
+    </string>
+
+    <string name="energy">
+        <font size="12">Energy: </font>
+    </string>
+
+    <string name="fouls">
+        <font size="12">Fouls: </font>
+    </string>
+
+    <string name="scored">
+        <font size="12">Scored</font>
+    </string>
+
+    <string name="restartFightButton">
+        <font size="12">Restart Fight</font>
+    </string>
 </resources>
