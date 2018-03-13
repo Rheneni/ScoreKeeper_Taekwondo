@@ -5,10 +5,10 @@ package com.example.android.courtcounter.AttackTypes;
  */
 
 public class HeadKick extends Attack {
-    static final Points POINTS = Points.HEAD_KICK;
-    static final EnergyLoss.OwnEnergyLoss OWN_ENERGY_LOSS = EnergyLoss.OwnEnergyLoss.HEAD_KICK;
-    static final EnergyLoss.OtherEnergyLoss OTHER_ENERGY_LOSS = EnergyLoss.OtherEnergyLoss.HEAD_KICK;
-    static final Fouls FOULS = Fouls.HEAD_KICK;
+    private static final Points POINTS = Points.HEAD_KICK;
+    private static final EnergyLoss.OwnEnergyLoss OWN_ENERGY_LOSS = EnergyLoss.OwnEnergyLoss.HEAD_KICK;
+    private static final EnergyLoss.OtherEnergyLoss OTHER_ENERGY_LOSS = EnergyLoss.OtherEnergyLoss.HEAD_KICK;
+    private static final Fouls FOULS = Fouls.HEAD_KICK;
 
     public Points getPoints() {
         return POINTS;

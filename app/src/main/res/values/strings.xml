@@ -34,15 +34,15 @@
     </string>
 
     <string name="totalScore">
-        <font size="14">Total score: </font>
+        <font size="14">Total score:\u0020</font>
     </string>
 
     <string name="energy">
-        <font size="12">Energy: </font>
+        <font size="12">Energy:\u0020</font>
     </string>
 
     <string name="fouls">
-        <font size="12">Fouls: </font>
+        <font size="12">Fouls:\u0020</font>
     </string>
 
     <string name="scored">
@@ -52,4 +52,9 @@
     <string name="restartFightButton">
         <font size="12">Restart Fight</font>
     </string>
+
+    <string name="WINNER">WINNER</string>
+
+    <string name="LOSER">LOSER</string>
+    <string name="DRAW">DRAW</string>
 </resources>
