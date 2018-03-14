@@ -103,7 +103,6 @@ public class MainActivity extends AppCompatActivity {
                 position2 = TORSO_KICK;
                 position1 = DEFEND;
             } else {
-                //Log.d("lowKick", "No Matching viewId");
                 isCorrectTurn = false;
                 int playerNum = isPlayer1Turn ? 2 : 1;
                 String msg = "Not Player" + playerNum + "'s Turn.";
@@ -151,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
             position2 = position;
             position1 = DEFEND;
         } else {
-            Log.d(tag, "No Matching viewId");
+            Log.d(tag, getString(R.string.logNoMatchingView));
             isCorrectTurn = false;
             int playerNum = isPlayer1Turn ? 2 : 1;
             String msg = "Not Player" + playerNum + "'s Turn.";
