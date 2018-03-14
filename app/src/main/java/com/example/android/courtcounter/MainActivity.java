@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int PUNCH = 2;
     private static final int TORSO_KICK = 3;
     private static final int HEAD_KICK = 4;
+
     private static final int WINNING_CAP = 7;
     private static final int FOULS_LIMIT = 3;
     private static final int RESULT_ID_PLAYER1 = R.id.result_player1;
