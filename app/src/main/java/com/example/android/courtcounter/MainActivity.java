@@ -89,13 +89,16 @@ public class MainActivity extends AppCompatActivity {
             @Position int position2 = STANCE;
             boolean isCorrectTurn = true;
             if (playerId == R.id.lowKick_button_player1 && isPlayer1Turn) {
+                //player1's turn
                 scored = player1.updatePlayer(new LowKick(), player2);
                 fouls = player1.getFouls();
                 foulsViewId = R.id.fouls_player_1;
                 scoredViewId = R.id.scored_player_1;
                 position1 = TORSO_KICK;
                 position2 = DEFEND;
+
             } else if (playerId == R.id.lowKick_button_player2 && !isPlayer1Turn) {
+                //player2's turn
                 scored = player2.updatePlayer(new LowKick(), player1);
                 fouls = player2.getFouls();
                 foulsViewId = R.id.fouls_player_2;
@@ -103,11 +106,13 @@ public class MainActivity extends AppCompatActivity {
                 position2 = TORSO_KICK;
                 position1 = DEFEND;
             } else {
+                //Not that player's turn
                 isCorrectTurn = false;
                 int playerNum = isPlayer1Turn ? 2 : 1;
                 String msg = "Not Player" + playerNum + "'s Turn.";
                 Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
             }
+            //if it is the correct turn for the player, update everything. In the end, check Winning conditions
             if (isCorrectTurn) {
                 isPlayer1Turn = !isPlayer1Turn;
                 dislpayEnergyPlayers();
@@ -136,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
         @Position int position2 = STANCE;
         boolean isCorrectTurn = true;
         if (playerId == id1 && isPlayer1Turn) {
+            //player1's turn
             scored = player1.updatePlayer(attack, player2);
             totalScore = player1.getTotalScore();
             totalScoreViewId = R.id.total_score_player_1;
@@ -143,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
             position1 = position;
             position2 = DEFEND;
         } else if (playerId == id2 && !isPlayer1Turn) {
+            //player2's turn
             scored = player2.updatePlayer(attack, player1);
             totalScore = player2.getTotalScore();
             totalScoreViewId = R.id.total_score_player_2;
@@ -150,12 +157,15 @@ public class MainActivity extends AppCompatActivity {
             position2 = position;
             position1 = DEFEND;
         } else {
+            //Not that player's turn
             Log.d(tag, getString(R.string.logNoMatchingView));
             isCorrectTurn = false;
             int playerNum = isPlayer1Turn ? 2 : 1;
             String msg = "Not Player" + playerNum + "'s Turn.";
             Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
         }
+
+        //if it is the correct turn for the player, update everything. In the end, check Winning conditions
         if (isCorrectTurn) {
             isPlayer1Turn = !isPlayer1Turn;
             dislpayEnergyPlayers();
@@ -189,12 +199,13 @@ public class MainActivity extends AppCompatActivity {
         updateImages(STANCE, STANCE);
     }
 
+    //Winning results are cleaned to an empty String
     public void cleanResults() {
         TextView view1 = findViewById(RESULT_ID_PLAYER1);
-        view1.setText("");
+        view1.setText(R.string.empty);
 
         TextView view2 = findViewById(RESULT_ID_PLAYER2);
-        view2.setText("");
+        view2.setText(R.string.empty);
     }
 
     public void checkWinningConditions() {

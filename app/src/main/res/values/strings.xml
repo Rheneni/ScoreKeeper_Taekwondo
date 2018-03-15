@@ -58,4 +58,5 @@
     <string name="LOSER">LOSER</string>
     <string name="DRAW">DRAW</string>
     <string name="logNoMatchingView">No Matching viewId</string>
+    <string name="empty"></string>
 </resources>
